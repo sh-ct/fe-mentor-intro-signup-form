@@ -1,0 +1,132 @@
+/* CSS RESET */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* VARIABLES */
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: white;
+  background-color: hsl(0, 100%, 75%);
+  background-image: url("../images/bg-intro-mobile.png");
+  text-align: center;
+  /* For this standalone component only */
+  display: grid;
+  place-items: center;
+}
+
+.welcome {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  margin: auto;
+}
+.welcome__section {
+  flex-basis: 325px;
+  flex-grow: 0;
+  max-width: 325px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.welcome__title {
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 1.3;
+}
+.welcome__message {
+  font-weight: 500;
+  font-size: 1.125;
+}
+
+.cta {
+  padding: 1em 2.5em;
+  background-color: hsl(248, 32%, 49%);
+  border-radius: 0.5em;
+}
+
+.form {
+  background-color: white;
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+  padding: 2em;
+  color: hsl(246, 25%, 77%);
+}
+.form__input {
+  padding: 1em 1.5em;
+  font-weight: 700;
+  border: 1px solid lightgray;
+  border-radius: 0.5em;
+  color: hsl(249, 10%, 26%);
+  font-size: 0.875rem;
+}
+.form__btn {
+  cursor: pointer;
+  padding: 1em 1.5em;
+  border-radius: 0.5em;
+  border-style: none;
+  background-color: hsl(154, 59%, 51%);
+  color: white;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+}
+.form__terms {
+  font-size: 0.75rem;
+  padding: 0 1em;
+}
+.form__terms > a {
+  color: hsl(0, 100%, 75%);
+  font-weight: 600;
+}
+
+@media (min-width: 50rem) {
+  body {
+    background-image: url("../images/bg-intro-desktop.png");
+  }
+  .welcome__section {
+    flex-basis: 500px;
+    max-width: 600px;
+  }
+  .welcome__text {
+    text-align: start;
+    margin-right: 2rem;
+  }
+  .welcome__title {
+    font-size: 3rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
