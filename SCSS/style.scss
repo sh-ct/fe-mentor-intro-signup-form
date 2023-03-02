@@ -46,15 +46,11 @@ body {
   gap: $-spacing;
   padding: $-spacing;
   margin: auto;
-  // margin-top: auto;
-  // margin-bottom: auto;
 
   
 
   &__section {
     flex-basis: 325px;
-    flex-grow: 0;
-    max-width: 325px;;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -65,7 +61,6 @@ body {
     font-weight: $-fw-extra-bold;
     font-size: 1.75rem;
     line-height: 1.3;
-    // margin: $-spacing;
   }
 
   &__message {
@@ -94,6 +89,14 @@ body {
   padding: 2em;
   
   color: $-clr-neutral-light;
+  position: relative;
+
+  &__input-group {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
 
   &__input {
     padding: $-box-padding;
@@ -102,7 +105,15 @@ body {
     border-radius: $-border-radius;
     color: $-clr-neutral-dark;
     font-size: 0.875rem;
+    flex-grow: 1;
+    max-width: 100%;
+
+    &:user-invalid {
+      border: 2px solid $-clr-primary-red
+    }
+
   }
+  
 
   &__btn {
     cursor: pointer;
@@ -128,7 +139,34 @@ body {
   }
 }
 
-@media (min-width: 50rem) {
+.error-icon {
+  width: 24px;
+  height: 24px;
+  background-image: url("../images/icon-error.svg");
+  display: none;
+  position: relative;
+  right: 20px;
+  margin-left: -25px;
+}
+
+.error-message {
+  font-size: 0.625rem;
+  font-weight: $-fw-bold;
+  color: $-clr-primary-red;
+  margin-top: 0.188rem;;
+  display: none;
+}
+
+.form__input:user-invalid ~ .error-icon {
+  display:inline-block
+}
+
+.form__input:user-invalid ~ .error-icon ~ .error-message {
+  display: block;
+  align-self: flex-end;
+}
+
+@media (min-width: 45rem) {
   body {
     background-image: $-img-background-desktop;
   }
@@ -137,7 +175,6 @@ body {
     
     &__section {
       flex-basis: 500px;;
-      max-width: 600px;
     }
 
     

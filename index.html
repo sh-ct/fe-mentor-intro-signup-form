@@ -26,10 +26,26 @@
         </div>
 
         <form action="" class="form">
-          <input id="first-name" required type="text" class="form__input" placeholder="First Name">
-          <input id="last-name" required type="text" class="form__input" placeholder="Last Name">
-          <input id="email" required type="email" class="form__input" placeholder="Email Address">
-          <input id="password" required type="password" class="form__input" placeholder="Password">
+          <div class="form__input-group">
+            <input id="first-name" required type="text" class="form__input" placeholder="First Name">
+            <i class="error-icon"></i>
+            <em class="error-message">First Name cannot be empty</em>
+          </div>
+          <div class="form__input-group">
+            <input id="last-name" required type="text" class="form__input" placeholder="Last Name">
+            <i class="error-icon"></i>
+            <em class="error-message">Last Name cannot be empty</em>
+          </div>
+          <div class="form__input-group">
+            <input id="email" required type="email" class="form__input" placeholder="Email Address">
+            <i class="error-icon"></i>
+            <em class="error-message">Looks like this is not an email</em>
+          </div>
+          <div class="form__input-group">
+            <input id="password" required type="password" class="form__input" placeholder="Password">
+            <i class="error-icon"></i>
+            <em class="error-message">Password cannot be empty</em>
+          </div>
           <button class="btn form__btn">Claim your free trial</button>
           <span class="form__terms">By clicking the button, you are agreeing to <wbr> our <a href="">Terms and Services</a></span>
         </form>
