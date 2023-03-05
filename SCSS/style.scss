@@ -51,6 +51,7 @@ body {
 
   &__section {
     flex-basis: 325px;
+    max-width: 325px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -107,12 +108,9 @@ body {
     font-size: 0.875rem;
     flex-grow: 1;
     max-width: 100%;
-
-    &:user-invalid {
-      border: 2px solid $-clr-primary-red
-    }
-
+    flex-basis: 100%;
   }
+
   
 
   &__btn {
@@ -137,6 +135,10 @@ body {
       font-weight: $-fw-bold;
     }
   }
+
+  label {
+    display: none;
+  }
 }
 
 .error-icon {
@@ -157,16 +159,28 @@ body {
   display: none;
 }
 
-.form__input:user-invalid ~ .error-icon {
-  display:inline-block
+.form__input-group.invalid .error-icon {
+  display: inline-block;
 }
 
-.form__input:user-invalid ~ .error-icon ~ .error-message {
-  display: block;
+
+.error-message {
   align-self: flex-end;
 }
 
-@media (min-width: 45rem) {
+.form__input-group.invalid .error-message {
+  display: block;
+}
+
+.form__input-group.invalid .form__input {
+  border: 2px solid $-clr-primary-red;
+}
+
+.form__input-group.valid .form__input {
+  border: 2px solid $-clr-primary-green;
+}
+
+@media screen and (min-width: 700px) {
   body {
     background-image: $-img-background-desktop;
   }
@@ -174,7 +188,8 @@ body {
   .welcome {
     
     &__section {
-      flex-basis: 500px;;
+      flex-basis: 500px;
+      max-width: 600px;
     }
 
     

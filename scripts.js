@@ -70,13 +70,10 @@ const debounce = (func, delay = 500) => {
 
 /* Event Listeners */
 formElement.addEventListener('submit', (event) => {
-    console.log('form triggered');
     event.preventDefault();
 
     const fieldsValid = Array.from(inputElements).map(element => checkInput(element));
-    console.log('fieldsValid', fieldsValid);
     const formValid = fieldsValid.every(field => field === true);
-    console.log('formValid', formValid);
 
     // Submit the form in a real project, here just log to console
     if (formValid) {

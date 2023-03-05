@@ -52,6 +52,7 @@ body {
 }
 .welcome__section {
   flex-basis: 325px;
+  max-width: 325px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -98,9 +99,7 @@ body {
   font-size: 0.875rem;
   flex-grow: 1;
   max-width: 100%;
-}
-.form__input:user-invalid {
-  border: 2px solid hsl(0, 100%, 75%);
+  flex-basis: 100%;
 }
 .form__btn {
   cursor: pointer;
@@ -121,6 +120,9 @@ body {
   color: hsl(0, 100%, 75%);
   font-weight: 600;
 }
+.form label {
+  display: none;
+}
 
 .error-icon {
   width: 24px;
@@ -140,21 +142,33 @@ body {
   display: none;
 }
 
-.form__input:user-invalid ~ .error-icon {
+.form__input-group.invalid .error-icon {
   display: inline-block;
 }
 
-.form__input:user-invalid ~ .error-icon ~ .error-message {
-  display: block;
+.error-message {
   align-self: flex-end;
 }
 
-@media (min-width: 45rem) {
+.form__input-group.invalid .error-message {
+  display: block;
+}
+
+.form__input-group.invalid .form__input {
+  border: 2px solid hsl(0, 100%, 75%);
+}
+
+.form__input-group.valid .form__input {
+  border: 2px solid hsl(154, 59%, 51%);
+}
+
+@media screen and (min-width: 700px) {
   body {
     background-image: url("../images/bg-intro-desktop.png");
   }
   .welcome__section {
     flex-basis: 500px;
+    max-width: 600px;
   }
   .welcome__text {
     text-align: start;
