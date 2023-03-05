@@ -9,6 +9,7 @@ const emailValid = (email) => {
     return regex.test(email);
 };
 
+// Checks the value of the input element for validity and sets styles accordingly
 const checkInput = (element) => {
     let valid = false;
     const elementType = element.title;
@@ -54,6 +55,7 @@ const onInputValid = (element) => {
     error.textContent = '';
 };
 
+// Prevents multiple function triggers within delay ms, only actions function if there is not currently a timer
 const debounce = (func, delay = 500) => {
     let timeoutID;
     return (...args) => {
@@ -69,10 +71,14 @@ const debounce = (func, delay = 500) => {
 };
 
 /* Event Listeners */
-formElement.addEventListener('submit', (event) => {
-    event.preventDefault();
 
-    const fieldsValid = Array.from(inputElements).map(element => checkInput(element));
+// Listens for submit events and checks the array of form inputs for validity before submitting the form
+formElement.addEventListener('submit', (event) => {
+    event.preventDefault(); // Prevent automatic submission
+
+    // Map the nodelist to a boolean array of input field validity
+    const fieldsValid = Array.from(inputElements).map(element => checkInput(element));// 
+    // The form is valid if every input element has a valid value
     const formValid = fieldsValid.every(field => field === true);
 
     // Submit the form in a real project, here just log to console
@@ -81,6 +87,7 @@ formElement.addEventListener('submit', (event) => {
     }
 });
 
+// Listens for input events in the input fields and prevents validation triggering as they are typing
 formElement.addEventListener('input', debounce((event) => {
     checkInput(event.target);
 }))
